@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+explorer.html
+/storybook-static
+
+# next.js
+/.next/
+/out/
+
+# vercel
+.vercel
