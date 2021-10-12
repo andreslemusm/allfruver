@@ -1,0 +1,165 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Anchor, Button } from "@components/lib";
+import {
+  HiArrowRight,
+  HiDownload,
+  HiOutlineHome,
+  HiOutlineUser,
+} from "react-icons/hi";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+<Meta title="Component Library/Button" component={Button} />
+
+# Button
+
+The `Button` component is used to trigger an action or event, such as submitting
+a form, opening a dialog, canceling an action, performing a delete operation or
+navigating within our app.
+
+## Import
+
+```typescript
+import { Anchor, Button } from "@components/lib";
+```
+
+- **Anchor:** The anchor component with support for navigation within the app.
+  Under the hood it wraps the `Link` component from React Router, all you need
+  to do is pass the `to` prop.
+- **Button:** The button component with support for custom icons, sizes, etc.
+
+## Usage
+
+<Canvas withToolbar>
+  <Story name="Usage">
+    <Button>Hello World</Button>
+  </Story>
+</Canvas>
+
+### Button Sizes
+
+Use the `size` prop to change the size of the button. You can set the value to
+`md`, `lg`, or `xl`.
+
+<Canvas>
+  <Story name="Size">
+    <div className="flex items-center gap-x-5">
+      <Button size="md">Button</Button>
+      <Button size="lg">Button</Button>
+      <Button size="xl">Button</Button>
+    </div>
+  </Story>
+</Canvas>
+
+### Button Statuses
+
+Use the `status` prop to change the visual state of the Button. You can set
+the value to `idle`, `loading`, or `disabled`.
+
+<Canvas>
+  <Story name="Status">
+    <div className="flex items-center gap-x-5">
+      <Button size="lg" status="idle">
+        Submit
+      </Button>
+      <Button size="lg" status="loading">
+        Submit
+      </Button>
+      <Button size="lg" status="disabled">
+        Submit
+      </Button>
+    </div>
+  </Story>
+</Canvas>
+
+If `status="loading"`. By default, the button will show a spinner and leave the
+button's width unchanged. You can also pass the `loadingText` prop to show a
+spinner and the loading text.
+
+<Canvas>
+  <Story name="Status / Loading">
+    <div className="flex items-center gap-x-5">
+      <Button size="lg" status="loading">
+        Submit
+      </Button>
+      <Button size="lg" status="loading" loadingText="Submitting">
+        Submit
+      </Button>
+    </div>
+  </Story>
+</Canvas>
+
+### Button with Icon
+
+You can add left and right icons to the Button component using the `leftIcon` and
+`rightIcon` props respectively. We are using icons from the popular library
+[react-icons](https://react-icons.github.io/react-icons/).
+
+> Note: The `leftIcon` and `rightIcon` prop values should be react components NOT
+> react elements.
+
+<Canvas>
+  <Story name="Icon">
+    <div className="flex gap-x-5">
+      <Button size="lg" leftIcon={HiDownload}>
+        PNG
+      </Button>
+      <Button size="lg" rightIcon={HiArrowRight}>
+        Next
+      </Button>
+    </div>
+  </Story>
+</Canvas>
+
+### Button Block
+
+Pass the `block` prop the to fill all the avaliable horizontal space.
+
+<Canvas>
+  <Story name="Block">
+    <Button block>Button</Button>
+  </Story>
+</Canvas>
+
+You can also wrap it with a `div` element an use Tailwind's classes to give it
+a custom width.
+
+<Canvas>
+  <Story name="Block / Custom Width">
+    <div className="w-60">
+      <Button block>Button</Button>
+    </div>
+  </Story>
+</Canvas>
+
+### Navigation
+
+To navigate within our app, use the `to` prop from the `Anchor` component. Which
+
+<Canvas>
+  <Story name="Navigation">
+    <Router>
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/profile" element={<h1>Profile</h1>} />
+      </Routes>
+      <div className="flex items-center gap-x-5">
+        <Anchor size="lg" to="/" leftIcon={HiOutlineHome}>
+          Home
+        </Anchor>
+        <Anchor size="lg" to="/profile" leftIcon={HiOutlineUser}>
+          Profile
+        </Anchor>
+      </div>
+    </Router>
+  </Story>
+</Canvas>
+
+## Props
+
+### Anchor
+
+<ArgsTable of={Anchor} />
+
+### Button
+
+<ArgsTable of={Button} />

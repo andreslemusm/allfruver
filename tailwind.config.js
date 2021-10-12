@@ -11,6 +11,7 @@ module.exports = {
       green: { 300: "#2BB673", 100: "#EEF7F2", 200: "#ECF3E4" },
       red: "#F32727",
       white: colors.white,
+      transparent: "transparent",
     },
     extend: {
       fontFamily: {
