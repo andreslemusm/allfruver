@@ -9,32 +9,32 @@
     "lint": "tsc && prettier -c . && next lint"
   },
   "dependencies": {
-    "next": "11.1.2",
+    "next": "12.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "4.2.0"
+    "react-icons": "4.3.1"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "11.1.2",
-    "@tailwindcss/aspect-ratio": "0.2.1",
-    "@types/react": "17.0.26",
-    "@typescript-eslint/eslint-plugin": "4.32.0",
-    "@typescript-eslint/parser": "4.32.0",
-    "autoprefixer": "10.3.6",
+    "@next/eslint-plugin-next": "12.0.1",
+    "@tailwindcss/aspect-ratio": "0.3.0",
+    "@types/react": "17.0.33",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "5.2.0",
+    "autoprefixer": "10.4.0",
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
+    "eslint-config-next": "12.0.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-functional": "3.7.2",
-    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-import": "2.25.2",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-react": "7.26.1",
     "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-plugin-unicorn": "36.0.0",
+    "eslint-plugin-unicorn": "37.0.1",
     "postcss": "8.3.8",
     "prettier": "2.4.1",
-    "tailwindcss": "2.2.16",
-    "typescript": "4.4.3"
+    "tailwindcss": "2.2.19",
+    "typescript": "4.4.4"
   },
   "volta": {
     "node": "16.10.0",
