@@ -1,9 +1,11 @@
 const { theme } = require("tailwindcss/defaultConfig");
 const colors = require("tailwindcss/colors");
 
+/** @type {Parameters<import('tailwindcss/index')>[0]} */
 module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  mode: "jit",
+  purge: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  darkMode: false,
   theme: {
     colors: {
       club: "#FF776F",
@@ -19,8 +21,8 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

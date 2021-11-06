@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["tailwindui.com"],
+    domains: ["cdn.chec.io"],
   },
 };

@@ -1,6 +1,6 @@
 module.exports = {
-  env: { node: true, es6: true },
-  extends: ["eslint:recommended", "prettier"],
+  env: { node: true, es2021: true },
+  extends: ["eslint:recommended", "next", "prettier"],
   root: true,
   overrides: [
     {
@@ -131,6 +131,10 @@ module.exports = {
          */
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
+        /**
+         * This rule cause a problem with the next Link componente, since it pass the href implicitly to the anchor tag
+         */
+        "jsx-a11y/anchor-is-valid": "off",
         /**
          * This rule was deprecated in v6.1.0:
          * @link https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
