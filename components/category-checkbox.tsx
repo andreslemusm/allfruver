@@ -23,7 +23,7 @@ export const CategoryCheckbox = ({
       id={`${name}-${value}`}
       className={classNames(
         checked ? "border-green-300" : "border-transparent",
-        "transition py-1 px-2 border rounded-lg flex flex-col items-center gap-y-0.5 cursor-pointer lg:border-2 lg:gap-y-1"
+        "flex-shrink-0 transition py-1 px-2 border rounded-lg flex flex-col items-center gap-y-0.5 cursor-pointer lg:border-2 lg:gap-y-1"
       )}
       name={name}
       value={value}

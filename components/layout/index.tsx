@@ -21,11 +21,9 @@ export const Layout = ({ children }: LayoutProps): React.ReactElement => (
           <button>
             <HiMenu className="h-5 w-5" />
           </button>
-          <Image
-            src={logo as string}
-            alt="Allfruver logo"
-            className="h-8 w-auto"
-          />
+          <div className="h-14 w-40">
+            <Image src={logo} alt="Allfruver logo" priority />
+          </div>
         </div>
       </Only>
       <div className="flex items-center gap-x-2">

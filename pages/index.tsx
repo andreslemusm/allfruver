@@ -33,22 +33,20 @@ const Home = ({ categories }: HomeProps): React.ReactElement => (
           placeholder="Buscar"
         />
       </div>
-      <div className="px-8 pt-4 overflow-x-auto lg:px-0">
-        <fieldset className="flex gap-x-2 last:pr-8 sm:last:pr-0 sm:justify-center">
-          <legend className="sr-only">Categorias</legend>
-          {categories.map((category) => (
-            <CategoryCheckbox
-              key={category.id}
-              name={category.name}
-              value={category.slug}
-              imageURL={
-                (category as unknown as { assets: Array<{ url: string }> })
-                  .assets[0].url
-              }
-            />
-          ))}
-        </fieldset>
-      </div>
+      <fieldset className="pl-8 mt-4 min-w-0 flex gap-x-2 overflow-x-auto last:pr-8 sm:last:pr-0 md:justify-center md:pl-0">
+        <legend className="sr-only">Categorias</legend>
+        {categories.map((category) => (
+          <CategoryCheckbox
+            key={category.id}
+            name={category.name}
+            value={category.slug}
+            imageURL={
+              (category as unknown as { assets: Array<{ url: string }> })
+                .assets[0].url
+            }
+          />
+        ))}
+      </fieldset>
     </Form>
   </Fragment>
 );
