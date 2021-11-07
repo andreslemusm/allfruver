@@ -4,10 +4,10 @@ import { Fragment } from "react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { HiSearch, HiUser } from "react-icons/hi";
 import { commerceClient } from "@lib/commerce";
-import { Button, Form, Input } from "@components/lib";
 import { logoWithPineapple } from "@assets";
+import { Button, Form, Input } from "@components/lib";
+import { HiSearch, HiUser } from "react-icons/hi";
 
 type HomeProps = {
   categories: Array<Category>;
@@ -56,7 +56,7 @@ const Home = ({ categories }: HomeProps): React.ReactElement => (
           <div className="h-14 w-9">
             <Image
               alt="Allfruver initial inside pineapple"
-              src={logoWithPineapple}
+              src={logoWithPineapple as string}
             />
           </div>
           <h1 className="font-bold text-2xl leading-6">
