@@ -5,9 +5,9 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { commerceClient } from "@lib/commerce";
-import { logoWithPineapple } from "@assets";
 import { Button, Form, Input } from "@components/lib";
 import { HiSearch, HiUser } from "react-icons/hi";
+import { logoWithPineapple, shoppingBag } from "@assets";
 
 type HomeProps = {
   categories: Array<Category>;
@@ -50,26 +50,36 @@ const Home = ({ categories }: HomeProps): React.ReactElement => (
         ))}
       </fieldset>
     </Form>
-    <section className="pl-8 py-9 bg-gradient-to-b from-[#E8E8E8] to-gray-100">
-      <div className="max-w-xl mx-auto flex flex-col items-start gap-y-3.5">
-        <div className="flex items-center gap-x-1.5">
-          <div className="h-14 w-9">
-            <Image
-              alt="Allfruver initial inside pineapple"
-              src={logoWithPineapple as string}
-            />
+    <section className="bg-gradient-to-b from-[#E8E8E8] to-gray-100">
+      <div className="pl-8 relative py-9 max-w-xl mx-auto overflow-hidden">
+        <article className="relative z-10 flex flex-col items-start gap-y-3.5">
+          <div className="flex items-center gap-x-1.5">
+            <div className="h-14 w-9">
+              <Image
+                alt="Allfruver initial inside pineapple"
+                src={logoWithPineapple as string}
+              />
+            </div>
+            <h1 className="font-bold text-2xl leading-6">
+              ¡Tus vegetales <br /> siempre frescos!
+            </h1>
           </div>
-          <h1 className="font-bold text-2xl leading-6">
-            ¡Tus vegetales <br /> siempre frescos!
-          </h1>
-        </div>
-        <p className="text-sm font-bold leading-4 lg:text-base lg:leading-4">
-          Pide lo mejor de tu mercado <br className="lg:hidden" /> local{" "}
-          <br className="hidden lg:inline" /> en línea y a domicilio
-        </p>
-        <Button size="sm" rightIcon={HiUser} appearance="secondary">
-          Crea tu cuenta
-        </Button>
+          <p className="text-sm font-bold leading-4 lg:text-base lg:leading-4">
+            Pide lo mejor de tu mercado <br className="lg:hidden" /> local{" "}
+            <br className="hidden lg:inline" /> en línea y a domicilio
+          </p>
+          <Button size="sm" rightIcon={HiUser} appearance="secondary">
+            Crea tu cuenta
+          </Button>
+        </article>
+        {/* Background */}
+        <Image
+          src={shoppingBag}
+          alt="Shopping bag"
+          className="object-contain object-right-bottom bottom-0 !-right-80 sm:!right-0"
+          layout="fill"
+          priority
+        />
       </div>
     </section>
   </Fragment>
