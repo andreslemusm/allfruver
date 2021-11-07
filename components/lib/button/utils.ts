@@ -1,8 +1,16 @@
 const appearances = {
   primary: [
-    "border-transparent text-white",
+    "border-transparent text-white border-2",
     {
-      idle: "bg-green-300 hover:bg-orange hover:text-white",
+      idle: "bg-green-300 hover:bg-green-400 hover:text-white",
+      loading: "opacity-90 cursor-default",
+      disabled: "bg-gray-200 text-green-100 cursor-not-allowed",
+    },
+  ],
+  secondary: [
+    "border-green-300 text-green-300 border-2",
+    {
+      idle: "hover:bg-green-300 hover:bg-opacity-5",
       loading: "opacity-90 cursor-default",
       disabled: "bg-gray-200 text-green-100 cursor-not-allowed",
     },

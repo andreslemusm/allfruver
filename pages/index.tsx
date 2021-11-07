@@ -3,9 +3,11 @@ import { CategoryCheckbox } from "@components/category-checkbox";
 import { Fragment } from "react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
-import { HiSearch } from "react-icons/hi";
+import Image from "next/image";
+import { HiSearch, HiUser } from "react-icons/hi";
 import { commerceClient } from "@lib/commerce";
-import { Form, Input } from "@components/lib";
+import { Button, Form, Input } from "@components/lib";
+import { logoWithPineapple } from "@assets";
 
 type HomeProps = {
   categories: Array<Category>;
@@ -48,6 +50,28 @@ const Home = ({ categories }: HomeProps): React.ReactElement => (
         ))}
       </fieldset>
     </Form>
+    <section className="pl-8 py-9 bg-gradient-to-b from-[#E8E8E8] to-gray-100">
+      <div className="max-w-xl mx-auto flex flex-col items-start gap-y-3.5">
+        <div className="flex items-center gap-x-1.5">
+          <div className="h-14 w-9">
+            <Image
+              alt="Allfruver initial inside pineapple"
+              src={logoWithPineapple}
+            />
+          </div>
+          <h1 className="font-bold text-2xl leading-6">
+            ¡Tus vegetales <br /> siempre frescos!
+          </h1>
+        </div>
+        <p className="text-sm font-bold leading-4 lg:text-base lg:leading-4">
+          Pide lo mejor de tu mercado <br className="lg:hidden" /> local{" "}
+          <br className="hidden lg:inline" /> en línea y a domicilio
+        </p>
+        <Button size="sm" rightIcon={HiUser} appearance="secondary">
+          Crea tu cuenta
+        </Button>
+      </div>
+    </section>
   </Fragment>
 );
 
