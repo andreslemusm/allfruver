@@ -4,10 +4,11 @@ import { Fragment } from "react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { commerceClient } from "@lib/commerce";
 import { Button, Form, Input } from "@components/lib";
 import { HiSearch, HiUser } from "react-icons/hi";
-import { logoWithPineapple, shoppingBag } from "@assets";
+import { discount, logoWithPineapple, shoppingBag } from "@assets";
 
 type HomeProps = {
   categories: Array<Category>;
@@ -81,6 +82,20 @@ const Home = ({ categories }: HomeProps): React.ReactElement => (
           priority
         />
       </div>
+    </section>
+    <section className="pl-8 pt-6 flex gap-x-2 min-w-0 max-w-max overflow-x-auto last:pr-8 lg:pt-9 lg:gap-x-6 lg:last:pr-8 lg:mx-auto">
+      {new Array(5).fill({}).map((_, index) => (
+        <Link key={index} href="/" passHref>
+          <a className="flex-shrink-0 block h-20 w-52 rounded-xl overflow-hidden">
+            <Image
+              src={discount}
+              alt="Discount"
+              placeholder="blur"
+              className="object-contain "
+            />
+          </a>
+        </Link>
+      ))}
     </section>
   </Fragment>
 );
