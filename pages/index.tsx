@@ -5,6 +5,7 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { Product } from "@chec/commerce.js/types/product";
 import { commerceClient } from "@lib/commerce";
 import { Button, Form, Input } from "@components/lib";
 import { HiSearch, HiUser } from "react-icons/hi";
@@ -12,9 +13,10 @@ import { discount, logoWithPineapple, shoppingBag } from "@assets";
 
 type HomeProps = {
   categories: Array<Category>;
+  products: Array<Product>;
 };
 
-const Home = ({ categories }: HomeProps): React.ReactElement => (
+const Home = ({ categories, products }: HomeProps): React.ReactElement => (
   <Fragment>
     <Head>
       <title>All Fruver</title>
@@ -97,15 +99,48 @@ const Home = ({ categories }: HomeProps): React.ReactElement => (
         </Link>
       ))}
     </section>
+    <section className="px-8 pt-8">
+      {products.map((product) => (
+        <article key={product.id} className="flex justify-between">
+          <div className="flex items-center gap-x-2">
+            <div className="w-16 h-16">
+              <Image
+                src={product.image?.url as string}
+                alt={product.image?.description as string}
+                className="object-contain"
+                height={512}
+                width={512}
+              />
+            </div>
+            <div className="flex flex-col gap-y-0.5">
+              <p className="font-bold">{product.name}</p>
+              <p className="text-xs tracking-tight">
+                {product.price.formatted_with_symbol} x 3 und
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-end gap-y-2">
+            <p className="font-bold">{product.price.formatted_with_symbol}</p>
+            <div className="w-28">
+              <Button block type="button" size="sm">
+                Agregar
+              </Button>
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
   </Fragment>
 );
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const { data: categories } = await commerceClient.categories.list();
+  const { data: products } = await commerceClient.products.list();
 
   return {
     props: {
       categories,
+      products,
     },
   };
 };
