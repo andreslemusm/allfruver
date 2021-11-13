@@ -93,15 +93,18 @@ const Home = ({ categories, products }: HomeProps): React.ReactElement => (
               src={discount}
               alt="Discount"
               placeholder="blur"
-              className="object-contain "
+              className="object-contain"
             />
           </a>
         </Link>
       ))}
     </section>
-    <section className="px-8 pt-8">
+    <section className="px-8 pt-8 max-w-screen-xl mx-auto grid md:grid-cols-2 md:gap-x-16 lg:gap-x-20 xl:grid-cols-3">
       {products.map((product) => (
-        <article key={product.id} className="flex justify-between">
+        <article
+          key={product.id}
+          className="flex justify-between py-4 border-b border-gray-200"
+        >
           <div className="flex items-center gap-x-2">
             <div className="w-16 h-16">
               <Image
